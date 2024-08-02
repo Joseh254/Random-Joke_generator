@@ -16,7 +16,7 @@ function App() {
         return;
       }
       const data = await response.json();
-      console.log(data.delivery);
+      
       
       if (data.setup) {
         setJoke(data.setup);
@@ -27,7 +27,7 @@ function App() {
       }
       setLoading(false); 
     } catch (error) {
-      console.error('Error fetching the data:', error);
+      
       setError('Failed to fetch joke. Please try again later.');
       setLoading(false); 
     }
@@ -40,19 +40,23 @@ if(loading){
   return <p>Loading...</p>
 }
   return (
-    <div>
+    <>
+    <div className="jokewrapper">
       <h1>Random Joke</h1>
       {error && <p>{error}</p>}
       {!error && (
         <>
-          <p>{joke}</p>
+      <div className="jokewrapperr">
+      <p>{joke}</p>
           {delivery && <p>{delivery}</p>}
           <button onClick={fetchJoke} disabled={loading}>
             {loading ? "Loading..." : "Get A New Joke"}
           </button>
+      </div>
         </>
       )}
     </div>
+    </>
   );
 }
 
