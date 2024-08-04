@@ -46,7 +46,7 @@ if(loading){
       {error && <p>{error}</p>}
       {!error && (
         <>
-          <p>{joke}</p>
+          <h3>{joke}</h3>
           {delivery && <p>{delivery}</p>}
           <button onClick={fetchJoke} disabled={loading}>
             {loading ? "Loading..." : "Get A New Joke"}

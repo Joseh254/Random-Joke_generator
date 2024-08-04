@@ -17,6 +17,14 @@
     padding: 1rem;
     height: 100vh;
 }
+.jokecontainer h3{
+    background-color: rgb(143, 194, 67);
+    padding: 2rem 1rem ;
+}
+.jokecontainer p{
+    background-color: rgb(170, 185, 146);
+    padding: 2rem 1rem ;
+}
 .jokecontainer button{
     background-color: #000;
     color: #fff;
@@ -24,4 +32,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1rem;
+    width: auto;
 }
