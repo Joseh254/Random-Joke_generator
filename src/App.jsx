@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import "./App.css"
+import "./App.css";
+
 function App() {
   const [joke, setJoke] = useState('');
   const [delivery, setDelivery] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
   const fetchJoke = async () => {
     const apiUrl = 'https://v2.jokeapi.dev/joke/Any';
     try {
@@ -16,8 +18,7 @@ function App() {
         return;
       }
       const data = await response.json();
-    
-      
+
       if (data.setup) {
         setJoke(data.setup);
         setDelivery(data.delivery);
@@ -27,7 +28,6 @@ function App() {
       }
       setLoading(false); 
     } catch (error) {
-      console.error('Error fetching the data:', error);
       setError('Failed to fetch joke. Please try again later.');
       setLoading(false); 
     }
@@ -36,24 +36,27 @@ function App() {
   useEffect(() => {
     fetchJoke();
   }, []);
-if(loading){
-  return <p>Loading...</p>
-}
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
-    <div className='randomjokecontainer'>
-<div className="jokecontainer">
-<h1 className='appheader'>Random Joke App By Joseph & Victory</h1>
-      {error && <p>{error}</p>}
-      {!error && (
-        <>
-          <h3>{joke}</h3>
-          {delivery && <p><i>{delivery}</i></p>}
-          <button onClick={fetchJoke} disabled={loading}>
-            {loading ? "Loading..." : "Get A New Joke"}
-          </button>
-        </>
-      )}
-</div>
+
+    <div className="randomjokecontainer">
+      <div className="jokecontainer">
+        <h1 className="appheader">Random Joke App By Joseph & Victory</h1>
+        {error && <p>{error}</p>}
+        {!error && (
+          <>
+            <h3>{joke}</h3>
+            {delivery && <p>{delivery}</p>}
+            <button onClick={fetchJoke} disabled={loading}>
+              {loading ? "Loading..." : "Get A New Joke"}
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }
