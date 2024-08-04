@@ -1,0 +1,17 @@
+.randomjokecontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: azure;
+    height: 100vh;
+    
+}
+.appheader{
+    border: solid red 2px;
+    padding: 1rem;
+}
+.jokecontainer{
+    width: 50%;
+    background-color: greenyellow;
+    padding: 1rem;
+}

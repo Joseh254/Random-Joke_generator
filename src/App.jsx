@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import "./App.css"
 function App() {
   const [joke, setJoke] = useState('');
   const [delivery, setDelivery] = useState('');
@@ -16,7 +16,7 @@ function App() {
         return;
       }
       const data = await response.json();
-      console.log(data.delivery);
+    
       
       if (data.setup) {
         setJoke(data.setup);
@@ -40,8 +40,9 @@ if(loading){
   return <p>Loading...</p>
 }
   return (
-    <div>
-      <h1>Random Joke</h1>
+    <div className='randomjokecontainer'>
+<div className="jokecontainer">
+<h1 className='appheader'>Random Joke App By Joseph & Victory</h1>
       {error && <p>{error}</p>}
       {!error && (
         <>
@@ -52,6 +53,7 @@ if(loading){
           </button>
         </>
       )}
+</div>
     </div>
   );
 }
